@@ -142,6 +142,7 @@ function animateHomepage(){
         stagger: 0.1,
         duration: 1.5,
         ease: Expo.easeInOut,
+        delay: -0.5
     })
 
     home.to("#Visual>g>g>path , #Visual>g>g>polyline", {
