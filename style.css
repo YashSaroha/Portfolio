@@ -239,13 +239,9 @@ path, polyline {
 }
 
 .aboutLeft a{
-    /* padding: 0; */
     font-size: 1.6vw;
     margin-top: 3vw;
     align-self: flex-end;
-    /* background-color: #ffffff00; */
-    /* border: none; */
-    /* outline: none; */
     color: #14cf93;
     font-family: 'Kaushan Script', cursive;
     letter-spacing: 0.1vw;
@@ -255,7 +251,7 @@ path, polyline {
 
 .aboutRight{
     width: 50%;
-    background-image: url(/img/pic.jpg);
+    background-image: url(./img/pic.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     filter: grayscale(0.5);
