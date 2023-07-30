@@ -251,7 +251,7 @@ path, polyline {
 
 .aboutRight{
     width: 50%;
-    background-image: url(./img/pic.jpg);
+    background-image: url("./img/pic.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     filter: grayscale(0.5);
