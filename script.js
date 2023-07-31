@@ -180,22 +180,29 @@ function animateHomepage(){
 
 
 function showAbout() {
-    let tl2 = gsap.timeline({
-        scrollTrigger : {
-            trigger : "#about",
-            scroller : ".main",
-            // markers : true,
-            start : "top 70%",
-            end : "top 0%",
-            scrub : 1
-        }
-    })
-    tl2.to(".main",{
-        backgroundColor : "#000"
-    })
-    tl2.to("#about",{
-        opacity : 1
-    })
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+
+            let tl2 = gsap.timeline({
+                scrollTrigger : {
+                    trigger : "#about",
+                    scroller : ".main",
+                    // markers : true,
+                    start : "top 70%",
+                    end : "top 0%",
+                    scrub : 1
+                }
+            })
+    
+            tl2.to(".main",{
+                backgroundColor : "#000"
+            })
+            tl2.to("#about",{
+                opacity : 1
+            })
+
+        } 
+    }
 
     gsap.to(".aboutLeft h4",{
         x : 100,
@@ -211,37 +218,50 @@ function showAbout() {
         repeat : -1,
         yoyo : true
     })
+      
+    let x = window.matchMedia("(min-width: 768px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
 }
 showAbout();
 
 
 function showSkills() {
-    let tl3 = gsap.timeline({
-        scrollTrigger : {
-            trigger : "#skills",
-            scroller : ".main",
-            // markers : true,
-            start : "top 30%",
-            end : "top -50",
-            scrub : 1
-        }   
-    })
-    tl3.to(".main",{
-        backgroundColor : "#fcfaf8",
-    },"fade")
-    tl3.to("#skills",{
-        opacity : 1,
-    },"fade")
-    tl3.to("#about",{
-        opacity : 0
-    },"fade")
-    tl3.to("#circle",{
-        rotate : 0,
-        delay : 0.5,
-        duration : 1.5,
-        ease : Expo.easeInOut,
-        borderColor : "#dadada"
-    },"fade")
+    
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            let tl3 = gsap.timeline({
+                scrollTrigger : {
+                    trigger : "#skills",
+                    scroller : ".main",
+                    // markers : true,
+                    start : "top 30%",
+                    end : "top -50",
+                    scrub : 1
+                }   
+            })
+            tl3.to(".main",{
+                backgroundColor : "#fcfaf8",
+            },"fade")
+            tl3.to("#skills",{
+                opacity : 1,
+            },"fade")
+            tl3.to("#about",{
+                opacity : 0
+            },"fade")
+            tl3.to("#circle",{
+                rotate : 0,
+                delay : 0.5,
+                duration : 1.5,
+                ease : Expo.easeInOut,
+                borderColor : "#dadada"
+            },"fade")
+        }
+    }
+
+    let x = window.matchMedia("(min-width: 768px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
 
 
     // center nav dot
@@ -253,8 +273,8 @@ function showSkills() {
     gsap.to(navDots[active-1],{
         opacity : 0.8,
         backgroundColor : "#14cf93",
-        height: "2vw",
-        width: "2vw",
+        height: "3vh",
+        width: "3vh",
     })
     gsap.to(second[active-1],{
         opacity : 1
@@ -273,8 +293,8 @@ function showSkills() {
             gsap.to(navDots,{
                 opacity : 0.15,
                 backgroundColor : "black",
-                height: "1vw",
-                width: "1vw",
+                height: "1.5vh",
+                width: "1.5vh",
             })
             // making all the stripes dull
             gsap.to(second,{
@@ -284,8 +304,8 @@ function showSkills() {
             gsap.to(navDots[index],{
                 opacity : 0.9,
                 backgroundColor : "#14cf93",
-                height: "2vw",
-                width: "2vw",
+                height: "3vh",
+                width: "3vh",
             })
             // glowing the stripe corresponding to clicked nav dot
             gsap.to(second[index],{
@@ -301,25 +321,33 @@ showSkills();
 
 function showProjects() {
 
-    let tl4 = gsap.timeline({
-        scrollTrigger : {
-            trigger : "#projects",
-            scroller : ".main",
-            // markers : true,
-            start : "top 60%",
-            end : "top 0%",
-            scrub : 1
+    function myFunction(x){
+        if(x.matches){
+            let tl4 = gsap.timeline({
+                scrollTrigger : {
+                    trigger : "#projects",
+                    scroller : ".main",
+                    // markers : true,
+                    start : "top 60%",
+                    end : "top 0%",
+                    scrub : 1
+                }
+            })
+            tl4.to(".main",{
+                backgroundColor : "#000"
+            },"abc")
+            tl4.to("#projects",{
+                opacity : 1
+            },"abc")
+            tl4.to("#skills",{
+                opacity : 0
+            },"abc")
         }
-    })
-    tl4.to(".main",{
-        backgroundColor : "#000"
-    },"abc")
-    tl4.to("#projects",{
-        opacity : 1
-    },"abc")
-    tl4.to("#skills",{
-        opacity : 0
-    },"abc")
+    }
+
+    let x = window.matchMedia("(min-width: 768px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
 }
 showProjects();
 
@@ -346,20 +374,46 @@ boxes.forEach(function(elem){
 
 function footer() {
 
-    let tl5 = gsap.timeline()
-    tl5.to(".firstName h1",{
-        fontSize : "8vw",
-        repeat : -1,
-        yoyo : true,
-        // ease : Expo.easeInOut,
-        stagger : 0.3
-    },"name")
-    tl5.to(".lastName h1",{
-        fontSize : "8vw",
-        repeat : -1,
-        yoyo : true,
-        // ease : Expo.easeInOut,
-        stagger : 0.5
-    },"name")
+    function myFunction(x){
+        if(x.matches){
+            let tl5 = gsap.timeline()
+            tl5.to(".firstName h1",{
+                fontSize : "8vw",
+                repeat : -1,
+                yoyo : true,
+                // ease : Expo.easeInOut,
+                stagger : 0.3
+            },"name")
+            tl5.to(".lastName h1",{
+                fontSize : "8vw",
+                repeat : -1,
+                yoyo : true,
+                // ease : Expo.easeInOut,
+                stagger : 0.5
+            },"name")
+        }
+
+        else {
+            let tl5 = gsap.timeline()
+            tl5.to(".firstName h1",{
+                fontSize : "10vh",
+                repeat : -1,
+                yoyo : true,
+                // ease : Expo.easeInOut,
+                stagger : 0.3
+            },"name")
+            tl5.to(".lastName h1",{
+                fontSize : "10vh",
+                repeat : -1,
+                yoyo : true,
+                // ease : Expo.easeInOut,
+                stagger : 0.5
+            },"name")
+        }
+    }
+
+    let x = window.matchMedia("(min-width: 768px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
 }
 footer();
